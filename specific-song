@@ -1,0 +1,6 @@
+#!/bin/fish
+
+set song (find ~/Music | grep flac | fzf)
+exiftool -b -Picture "$song" > /tmp/cover.png
+icat /tmp/cover.png
+mpv --no-audio-display $song
